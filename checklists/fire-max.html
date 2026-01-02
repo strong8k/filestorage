@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fire Stick Integrator Checklist</title>
+    <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent: #00bcd4;
+            --accent-hover: #008ba3;
+            --code-bg: #000;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: var(--accent);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        /* Checkbox Styling */
+        .task {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .task:hover {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .task input[type="checkbox"] {
+            appearance: none;
+            background-color: transparent;
+            margin: 5px 15px 0 0;
+            font: inherit;
+            color: var(--accent);
+            width: 1.2em;
+            height: 1.2em;
+            border: 2px solid var(--accent);
+            border-radius: 3px;
+            display: grid;
+            place-content: center;
+            flex-shrink: 0;
+        }
+
+        .task input[type="checkbox"]::before {
+            content: "";
+            width: 0.65em;
+            height: 0.65em;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em white;
+            transform-origin: center;
+            clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        }
+
+        .task input[type="checkbox"]:checked {
+            background-color: var(--accent);
+        }
+
+        .task input[type="checkbox"]:checked::before {
+            transform: scale(1);
+        }
+
+        .task-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .note {
+            font-size: 0.85em;
+            color: var(--text-muted);
+        }
+
+        /* Code Block Styling */
+        .code-block {
+            background: var(--code-bg);
+            border-radius: 6px;
+            margin: 10px 0 10px 32px; /* Indent to align with text */
+            position: relative;
+            border: 1px solid #444;
+        }
+
+        pre {
+            margin: 0;
+            padding: 15px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+            color: #a5d6a7;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: var(--card-bg);
+            border: 1px solid #555;
+            color: var(--text-main);
+            padding: 4px 8px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            border-radius: 4px;
+            opacity: 0.7;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            opacity: 1;
+            background: var(--accent);
+            color: #000;
+        }
+
+        .refresh-hint {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-muted);
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🔥 Fire Stick Integrator Checklist</h1>
+
+    <div class="section">
+        <h2>1. Manual Setup (On Device)</h2>
+        
+        <label class="task">
+            <input type="checkbox">
+            <div class="task-content">
+                <span><strong>Remote Pair & Network</strong></span>
+                <span class="note">Hold Home 10s. Connect to Wi-Fi (Do NOT save password to Amazon).</span>
+            </div>
+        </label>
+
+        <label class="task">
+            <input type="checkbox">
+            <div class="task-content">
+                <span><strong>Sign In (Burner Account)</strong></span>
+                <span class="note">Use your dedicated installer account.</span>
+            </div>
+        </label>
+
+        <label class="task">
+            <input type="checkbox">
+            <div class="task-content">
+                <span><strong>Skip All Upsells</strong></span>
+                <span class="note">Restore: <strong>SKIP</strong> | Parental: <strong>NO</strong> | Streaming Apps: <strong>NO THANKS</strong>.</span>
+            </div>
+        </label>
+
+        <label class="task">
+            <input type="checkbox">
+            <div class="task-content">
+                <span><strong>Enable ADB (The 7 Clicks)</strong></span>
+                <span class="note">Settings > My Fire TV > About > Click Name 7 times.<br>Back > Developer Options > <strong>ADB Debugging ON</strong>.</span>
+            </div>
+        </label>
+
+        <label class="task">
+            <input type="checkbox">
+            <div class="task-content">
+                <span><strong>Get IP Address</strong></span>
+                <span class="note">Settings > My Fire TV > About > Network.</span>
+            </div>
+        </label>
+    </div>
+
+    <div class="section">
+        <h2>2. Server Automation</h2>
+
+        <label class="task">
+            <input type="checkbox">
+            <div class="task-content">
+                <span><strong>Connect ADB</strong></span>
+                <span class="note">Replace IP with device IP. Check TV screen for "Allow USB Debugging" popup!</span>
+            </div>
+        </label>
+        <div class="code-block">
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+            <pre>adb connect 192.168.1.XXX</pre>
+        </div>
+
+        <label class="task">
+            <input type="checkbox">
+            <div class="task-content">
+                <span><strong>Run Master Script</strong></span>
+                <span class="note">Installs Projectivy, Hijacks Home Button, Removes Bloat (Keeps Netflix/D+/Prime).</span>
+            </div>
+        </label>
+        <div class="code-block">
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+            <pre># INSTALL LAUNCHER
+curl -L -o Projectivy.apk https://github.com/spocky/miproja1/releases/latest/download/Projectivy_Launcher.apk
+adb install -r Projectivy.apk
+
+# HIJACK HOME BUTTON
+adb shell appops set com.spocky.projengmenu SYSTEM_ALERT_WINDOW allow
+adb shell pm grant com.spocky.projengmenu android.permission.WRITE_SECURE_SETTINGS
+adb shell settings put secure enabled_accessibility_services com.spocky.projengmenu/com.spocky.projengmenu.services.ProjectivyAccessibilityService
+
+# DISABLE SLEEP
+adb shell settings put secure sleep_timeout 0
+adb shell settings put system screen_off_timeout 2147460000
+
+# DEBLOAT (SAFE LIST)
+adb shell pm disable-user --user 0 com.amazon.device.messaging
+adb shell pm disable-user --user 0 com.amazon.tcomm
+adb shell pm disable-user --user 0 com.amazon.collect.log.reporter
+adb shell pm disable-user --user 0 com.amazon.imdb.tv.android.app
+adb shell pm disable-user --user 0 com.amazon.adcolony
+adb shell pm disable-user --user 0 com.amazon.firetv.youtube
+adb shell pm disable-user --user 0 com.amazon.bueller.photos
+adb shell pm disable-user --user 0 com.amazon.music.tv
+
+# CLEANUP
+rm Projectivy.apk
+echo "Done."</pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>3. Projectivy Configuration</h2>
+
+        <label class="task">
+            <input type="checkbox">
+            <div class="task-content">
+                <span><strong>Verify Home Button</strong></span>
+                <span class="note">Press Home. If prompted, select Projectivy. If not, check "Override Home Button" in Projectivy Settings.</span>
+            </div>
+        </label>
+
+        <label class="task">
+            <input type="checkbox">
+            <div class="task-content">
+                <span><strong>Organize "System Apps"</strong></span>
+                <span class="note">Create Category "System Apps". Move Netflix, Disney+, Prime, Peacock there.</span>
+            </div>
+        </label>
+
+        <label class="task">
+            <input type="checkbox">
+            <div class="task-content">
+                <span><strong>Add "Wi-Fi" Shortcut</strong></span>
+                <span class="note">Add Tile (+) > Android Settings > Wi-Fi. (Crucial for client internet changes).</span>
+            </div>
+        </label>
+
+        <label class="task">
+            <input type="checkbox">
+            <div class="task-content">
+                <span><strong>Hide Amazon Settings Icon</strong></span>
+                <span class="note">Long press original Settings gear > Remove from launcher.</span>
+            </div>
+        </label>
+
+        <label class="task">
+            <input type="checkbox">
+            <div class="task-content">
+                <span><strong>Lock Projectivy</strong></span>
+                <span class="note">Settings > General > Parental Control > Prevent config changes > <strong>ON</strong>.</span>
+            </div>
+        </label>
+    </div>
+
+    <div class="section">
+        <h2>4. Amazon Locks (The "Soft Lock")</h2>
+        
+        <label class="task">
+            <input type="checkbox">
+            <div class="task-content">
+                <span><strong>Set Parental Controls</strong></span>
+                <span class="note">Settings > Preferences > Parental Controls > <strong>ON</strong>.</span>
+            </div>
+        </label>
+
+        <label class="task">
+            <input type="checkbox">
+            <div class="task-content">
+                <span><strong>Purchases: ON</strong></span>
+                <span class="note">PIN Protect Purchases (Prevents billing issues).</span>
+            </div>
+        </label>
+
+        <label class="task">
+            <input type="checkbox">
+            <div class="task-content">
+                <span><strong>App Launches: OFF</strong></span>
+                <span class="note">Must be OFF so they can open apps freely.</span>
+            </div>
+        </label>
+
+        <label class="task">
+            <input type="checkbox">
+            <div class="task-content">
+                <span><strong>Settings: OFF</strong></span>
+                <span class="note">Allows Wi-Fi changes. (We hid the icon in step 3 to discourage access).</span>
+            </div>
+        </label>
+    </div>
+
+    <div class="section">
+        <h2>5. Final Polish</h2>
+
+        <label class="task">
+            <input type="checkbox">
+            <div class="task-content">
+                <span><strong>Disable Nav Sounds</strong></span>
+                <span class="note">Settings > Display & Sounds > Audio > Navigation Sounds > <strong>OFF</strong>.</span>
+            </div>
+        </label>
+
+        <label class="task">
+            <input type="checkbox">
+            <div class="task-content">
+                <span><strong>Disconnect ADB</strong></span>
+            </div>
+        </label>
+        <div class="code-block">
+            <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+            <pre>adb disconnect</pre>
+        </div>
+    </div>
+
+    <div class="refresh-hint">
+        Refresh page to reset checklist for next device (F5)
+    </div>
+</div>
+
+<script>
+    function copyToClipboard(button) {
+        const pre = button.nextElementSibling;
+        const text = pre.innerText;
+        
+        navigator.clipboard.writeText(text).then(() => {
+            const originalText = button.innerText;
+            button.innerText = "Copied!";
+            button.style.background = "#00bcd4";
+            button.style.color = "#000";
+            
+            setTimeout(() => {
+                button.innerText = originalText;
+                button.style.background = "";
+                button.style.color = "";
+            }, 2000);
+        });
+    }
+</script>
+
+</body>
+</html>
